@@ -1,32 +1,43 @@
-const navScreen = document.querySelectorAll('.nav_item');
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav_item');
+    const navMenu = document.getElementById('nav-menu');
 
-navScreen.forEach(item => {
-    item.addEventListener('click', () => {
-        const navMenu = document.getElementById('nav-menu');
-        // Perform the desired action, e.g., removing the 'show' class to hide the menu
-        navMenu.classList.remove('show');
-        
-        // Optionally, you might want to handle the active link class here
-        document.querySelector('.nav_link.active-link').classList.remove('active-link');
-        item.querySelector('.nav_link').classList.add('active-link');
+    navItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = item.querySelector('a').getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                // Scroll to the target section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Remove 'show' class from navMenu if it's visible on smaller screens
+                if (navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                }
+
+                // Remove 'active-link' class from current active link
+                document.querySelector('.nav_link.active-link').classList.remove('active-link');
+
+                // Add 'active-link' class to clicked link
+                item.querySelector('.nav_link').classList.add('active-link');
+            }
+        });
     });
-});
 
-const contactButton = document.querySelector('.button');
-
-contactButton.addEventListener('click',function(){
-    const contactSection = document.getElementById('contact');
+    const contactButton = document.querySelector('.button');
+    contactButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
         if (contactSection) {
-            contactSection.scrollIntoView({ 
-                behavior: 'smooth' 
-            });
+            contactSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.error('Element with ID contact not found.');
         }
-});
+    });
 
-/*===== SCROLL REVEAL ANIMATION =====*/
-document.addEventListener('DOMContentLoaded', function() {
+    /*===== SCROLL REVEAL ANIMATION =====*/
     const sr = ScrollReveal({
         origin: 'top',
         distance: '60px',
@@ -35,128 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // reset: true
     });
 
-    sr.reveal('.home_data, .about_img, .skills_subtitle, .skills_text',{}); 
-    sr.reveal('.home_img, .about_subtitle, .about_text, .skills_img',{delay: 400}); 
-    sr.reveal('.home_social-icon',{ interval: 200}); 
-    sr.reveal('.skills_data, .work_img, .contact_input',{interval: 200}); 
-
+    sr.reveal('.home_data, .about__img, .skills__subtitle, .skills__text', {});
+    sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img', { delay: 400 });
+    sr.reveal('.home__social-icon', { interval: 200 });
+    sr.reveal('.skills__container, .work__img, .contact__input', { interval: 200 });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const showMenu = (toggleId, navId) => {
-//     const toggle = document.getElementById(toggleId),
-//         nav = document.getElementById(navId)
-
-//     if(toggle && nav){
-//         toggle.addEventListener('click', () => {
-//             nav.classList.toggle('show')
-//         })
-//     }
-// }
-
-// showMenu('nav-toggle','nav-menu')
-
-// /*=============== REMOVE MENU MOBILE ===============*/
-// const navLink = document.querySelectorAll('.nav_link')
-
-// function linkAction(){
-//     const navMenu = document.getElementById('nav-menu')
-//     // When we click on each nav_link, we remove the show-menu class
-//     navMenu.classList.remove('show')
-// }
-// navLink.forEach(n => n.addEventListener('click', linkAction))
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     /*===== MENU SHOW =====*/ 
-//     const showMenu = (toggleId, navId) => {
-//         const toggle = document.getElementById(toggleId),
-//             nav = document.getElementById(navId)
-
-//         if (toggle && nav) {
-//             toggle.addEventListener('click', () => {
-//                 nav.classList.toggle('show')
-//             })
-//         } else {
-//             console.error(`Elements with IDs ${toggleId} and/or ${navId} not found.`);
-//         }
-//     }
-
-//     showMenu('nav-toggle', 'nav-menu')
-
-//     /*==================== REMOVE MENU MOBILE ====================*/
-//     const navLink = document.querySelectorAll('.nav_link')
-
-//     function linkAction(){
-//         const navMenu = document.getElementById('nav-menu')
-//         // When we click on each nav_link, we remove the show-menu class
-//         if (navMenu) {
-//             navMenu.classList.remove('show')
-//         } else {
-//             console.error('Element with ID nav-menu not found.');
-//         }
-//     }
-
-//     navLink.forEach(n => n.addEventListener('click', linkAction))
-
-//     /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-//     const sections = document.querySelectorAll('section[id]')
-
-//     const scrollActive = () =>{
-//         const scrollY = window.scrollY
-
-//         sections.forEach(current =>{
-//             const sectionHeight = current.offsetHeight,
-//                   sectionTop = current.offsetTop - 58,
-//                   sectionId = current.getAttribute('id'),
-//                   sectionsClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']')
-
-//             if (sectionsClass) {
-//                 if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-//                     sectionsClass.classList.add('active-link')
-//                 } else {
-//                     sectionsClass.classList.remove('active-link')
-//                 }
-//             }
-//         })
-//     }
-
-//     window.addEventListener('scroll', scrollActive)
-
-//     /*===== SCROLL REVEAL ANIMATION =====*/
-//     const sr = ScrollReveal({
-//         origin: 'top',
-//         distance: '60px',
-//         duration: 2000,
-//         delay: 200,
-//         // reset: true
-//     });
-
-//     sr.reveal('.home_data, .about_img, .skills_subtitle, .skills_text',{}); 
-//     sr.reveal('.home_img, .about_subtitle, .about_text, .skills_img',{delay: 400}); 
-//     sr.reveal('.home_social-icon',{ interval: 200}); 
-//     sr.reveal('.skills_data, .work_img, .contact_input',{interval: 200}); 
-// });
