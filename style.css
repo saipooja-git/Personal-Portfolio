@@ -634,3 +634,252 @@ img {
 }
 
 /* Hover Effect 
+/* Contact Section */
+.contact {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form */
+.contact-form {
+  width: 50%;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-box textarea {
+  height: 100px;
+}
+
+.contact-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  background-color: darkblue;
+}
+
+/* Contact Info */
+.contact-info {
+  width: 40%;
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-size: 22px;
+  color: #333;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: navy;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.resume-btn:hover {
+  background: darkblue;
+}
+
+/* Icons */
+.contact-icons {
+  margin-top: 15px;
+}
+
+.contact-icons a {
+  font-size: 20px;
+  color: navy;
+  margin-right: 10px;
+}
+
+.contact-icons a:hover {
+  color: darkblue;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .contact-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .contact-form, .contact-info {
+      width: 100%;
+  }
+}
+/* Home Section */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: left;
+  padding: 50px;
+  background: white;
+}
+
+/* Align Text & Image */
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Text Section */
+.home-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0a0a0a;
+}
+
+.home-title-color {
+  color: #3b82f6; /* Blue color */
+}
+
+/* Profile Image - Rectangular */
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  width: 400px; /* Set width */
+  height: 450px; /* Set height */
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+  border-radius: 10px; /* Slightly rounded edges */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Social Icons */
+.home-social {
+  margin-top: 20px;
+}
+
+.home-social-icon {
+  font-size: 24px;
+  color: #0a0a0a;
+  margin-right: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.home-social-icon:hover {
+  color: #3b82f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .home-text {
+      text-align: center;
+  }
+
+  .profile-image {
+      width: 300px;
+      height: 350px;
+  }
+}
+/* Skills Section */
+.skills {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #eaeaf2; /* Dark Blue Background */
+}
+
+.skills-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Skill Box Styling */
+.skill-box {
+  background-color: #222b5f; /* Slightly lighter blue */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.skill-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Grid */
+@media screen and (min-width: 768px) {
+  .skills-grid {
+      grid-template-columns: repeat(3, 1fr); /* Three columns for tablets */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .skills-grid {
+      grid-template-columns: repeat(4, 1fr); /* Four columns for larger screens */
+  }
+}
